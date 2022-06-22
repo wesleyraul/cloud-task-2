@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wesleyvieira-american-predictor-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wesleyvieira-american-predictor
+  template:
+    metadata:
+      labels:
+        app: wesleyvieira-american-predictor
+    spec:
+      containers:
+        - name: wesleyvieira-american-predictor
+          image: murelixis/american-predictor:0.1
+          ports:
+            - containerPort: 5028
